@@ -1,0 +1,37 @@
+module std.vector
+
+import std.slice
+
+public struct Vector[T] {
+  items: [T]?,
+  length: int,
+}
+
+impl[T] Vector[T] {
+  public fn new() -> Self {
+    Vector { items: null, length: 0 }
+  }
+
+  public fn push(*self, item: T) {
+    // If we don't have to grow capacity
+    if self.inner.len > self.length + 1 {
+      self.inner[self.length] = item
+      self.length += 1
+    } else {
+      grow(self.length + 1)
+    }
+  }
+
+  fn grow(*self, desiredCapacity: int) {
+    capacity := self.self.items.len
+    while capacity < desiredCapacity {
+      capacity *= 2
+    }
+
+    self.items = std.slice.growSlice(self.items, capacity)
+  }
+
+  public fn as_slice(*self) -> [T]? {
+    self.items
+  }
+}

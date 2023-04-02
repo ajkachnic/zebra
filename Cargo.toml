@@ -1,0 +1,17 @@
+[package]
+name = "zebra"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cranelift = "0.92.0"
+cranelift-codegen = "0.92.0"
+cranelift-frontend = "0.92.0"
+miette = { version = "5.5.0", features = ["fancy"] }
+num = "0.4.0"
+num-derive = "0.3.3"
+num-traits = "0.2.15"
+salsa = { git = "https://github.com/salsa-rs/salsa.git", package = "salsa-2022" }
+thiserror = "1.0.38"

@@ -1,0 +1,21 @@
+module std.string
+
+
+struct String {
+    inner: Vector[byte]
+}
+
+impl String {
+    public fn new() -> String {
+        String { inner = Vector::new(), }
+    }
+
+    public fn with_capacity(capacity: int) -> String {
+        String { inner = Vector::with_capacity(capacity) }
+    }
+    
+    // Returns an iterator of the characters of the slice
+    public fn chars(*self) -> Chars {
+        Chars::from(self.inner.inner) 
+    }
+}

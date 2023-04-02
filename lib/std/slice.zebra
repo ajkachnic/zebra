@@ -1,0 +1,8 @@
+import rt.mem
+
+public fn growSlice[T](slice: [T], size: int) [T] {
+    data := mem.alloc(size)
+    mem.copy(slice, data)
+
+    return data
+}

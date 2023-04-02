@@ -1,0 +1,3 @@
+module std.prelude
+
+public import std.vector.Vector
