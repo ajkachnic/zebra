@@ -1,11 +1,8 @@
-mod token;
-
 use miette::Diagnostic;
 use thiserror::Error;
 
+pub use super::token::{Token, TokenType};
 use crate::common::Span;
-use crate::db::SourceProgram;
-pub use token::{Token, TokenType};
 
 pub struct Reader<'input> {
     source: &'input str,
@@ -117,12 +114,9 @@ fn ensure_separator<'s>(tokens: &mut Vec<Token<'s>>, reader: &mut Reader<'s>) {
     }
 }
 
-pub fn tokenize<'src>(
-    db: &dyn crate::Db,
-    input: SourceProgram,
-) -> Result<Vec<Token<'src>>, LexError> {
+pub fn tokenize<'src>(input: &'src str) -> Result<Vec<Token<'src>>, LexError> {
     let mut tokens = Vec::new();
-    let mut reader = Reader::new(&input.text(db));
+    let mut reader = Reader::new(input);
 
     while reader.has_next() {
         let c = reader.peek().unwrap();
@@ -213,7 +207,7 @@ pub fn tokenize<'src>(
                     Ok(_) => tokens.push(reader.pop_token(TokenType::Number)),
                     Err(_) => {
                         return Err(LexError::InvalidNumericLiteral {
-                            src: input.text(db).to_string(),
+                            src: input.to_string(),
                             span: reader.pop_span(),
                         })
                     }

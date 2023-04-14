@@ -1,4 +1,4 @@
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum Type {
     Base(BaseType),
     Array { ty: Box<Type> },
@@ -16,7 +16,7 @@ impl Type {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum BaseType {
     Number,
     String,
@@ -36,7 +36,7 @@ pub struct Typed<T> {
     pub inner: T,
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct TypedVariable {
     pub name: String,
     pub ty: Type,

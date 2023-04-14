@@ -102,12 +102,6 @@ pub struct Token<'src> {
     pub(crate) span: Span,
 }
 
-// impl<'src> ToString for Token<'src> {
-//    fn to_string(&self) -> String {
-//        return self.text.to_string()
-//    }
-//}
-
 impl<'src> Token<'src> {
     pub fn new(t: TokenType, text: &'src str, span: Span) -> Self {
         Self { t, text, span }

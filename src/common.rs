@@ -2,8 +2,8 @@ use miette::SourceSpan;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct Span {
-    start: usize,
-    end: usize,
+    pub(crate) start: usize,
+    pub(crate) end: usize,
 }
 
 impl Span {

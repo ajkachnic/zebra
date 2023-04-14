@@ -1,2 +1,2 @@
-mod check;
-mod typed_ir;
+// mod check;
+// mod typed_ir;

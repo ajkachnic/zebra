@@ -13,5 +13,6 @@ miette = { version = "5.5.0", features = ["fancy"] }
 num = "0.4.0"
 num-derive = "0.3.3"
 num-traits = "0.2.15"
+ordered-float = "3.6.0"
 salsa = { git = "https://github.com/salsa-rs/salsa.git", package = "salsa-2022" }
 thiserror = "1.0.38"

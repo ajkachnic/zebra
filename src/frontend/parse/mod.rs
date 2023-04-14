@@ -5,7 +5,7 @@ use num::FromPrimitive;
 use num_derive::FromPrimitive;
 use thiserror::Error;
 
-use crate::frontend::lex::Span;
+use crate::common::Span;
 use crate::frontend::lex::Token;
 use crate::frontend::lex::TokenType;
 use crate::types;
